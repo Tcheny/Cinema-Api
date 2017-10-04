@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 let Schema = mongoose.Schema;
 let CinemaSchema = new Schema({
   title: String,
-  autor: String,
+  author: String,
   type: String
 });
 
