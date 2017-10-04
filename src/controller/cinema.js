@@ -29,15 +29,17 @@ export default () => {
   // 'app/cinema/add' ajouter un film (titre, auteur, genre)
   api.post('/add', ( req, res ) => {
     let newMovie = new Cinema();
-    newMovie.title = req.body.title
-    newMovie.autor = req.body.autor
-    newMovie.type = req.body.type
+    newMovie.title = req.body.title;
+    newMovie.author = req.body.author;
+    cinema.type = req.body.type;
+
+    newMovie.type = req.body.type;
 
     newMovie.save(( err ) => {
       if ( err ) {
         res.send( err );
       }
-      res.json({ message: 'Cinema saved successfully'});
+      res.json({ message: 'Movie saved successfully'});
     });
   });
 
@@ -49,7 +51,26 @@ export default () => {
       if ( err ) {
         res.send( err )
       }
-      res.json({ message: 'Cinema removed successfully' });
+      res.json({ message: 'Movie removed successfully' });
+    });
+  });
+
+// 'v1/cinema/:id' update d'un film par son id
+  api.put('/:id', ( req, res ) => {
+    Cinema.findById( req.params.id, ( err, cinema ) => {
+      if ( err ) {
+        res.send( err );
+      }
+      cinema.title = req.body.title;
+      cinema.author = req.body.author;
+      cinema.type = req.body.type;
+
+      cinema.save( ( err ) => {
+        if ( err ) {
+          res.send( err );
+        }
+        res.json({ message: 'Movie infos updated' });
+      });
     });
   });
 
