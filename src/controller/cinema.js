@@ -43,7 +43,7 @@ export default () => {
     });
   });
 
-  // 'v1/cinema/:id' supprimer un film par son id
+  // 'app/cinema/:id' supprimer un film par son id
   api.delete('/:id', ( req, res ) => {
     Cinema.remove({
       _id: req.params.id
@@ -55,7 +55,7 @@ export default () => {
     });
   });
 
-// 'v1/cinema/:id' update d'un film par son id
+// 'app/cinema/:id' update d'un film par son id
   api.put('/:id', ( req, res ) => {
     Cinema.findById( req.params.id, ( err, cinema ) => {
       if ( err ) {
