@@ -40,6 +40,18 @@ export default () => {
       res.json({ message: 'Cinema saved successfully'});
     });
   });
-  
+
+  // 'v1/cinema/:id' supprimer un cinema par son id
+  api.delete('/:id', ( req, res ) => {
+    Cinema.remove({
+      _id: req.params.id
+    }, ( err, cinema ) => {
+      if ( err ) {
+        res.send( err )
+      }
+      res.json({ message: 'Cinema removed successfully' });
+    });
+  });
+
   return api
 }
