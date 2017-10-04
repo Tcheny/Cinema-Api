@@ -31,7 +31,7 @@ export default () => {
     let newMovie = new Cinema();
     newMovie.title = req.body.title;
     newMovie.author = req.body.author;
-    cinema.type = req.body.type;
+    newMovie.type = req.body.type;
 
     newMovie.type = req.body.type;
 
