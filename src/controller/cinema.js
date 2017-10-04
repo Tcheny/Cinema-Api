@@ -26,5 +26,20 @@ export default () => {
     });
   });
 
+  // 'app/cinema/add' ajouter un film (titre, auteur, genre)
+  api.post('/add', ( req, res ) => {
+    let newMovie = new Cinema();
+    newMovie.title = req.body.title
+    newMovie.autor = req.body.autor
+    newMovie.type = req.body.type
+
+    newMovie.save(( err ) => {
+      if ( err ) {
+        res.send( err );
+      }
+      res.json({ message: 'Cinema saved successfully'});
+    });
+  });
+  
   return api
 }
