@@ -41,7 +41,7 @@ export default () => {
     });
   });
 
-  // 'v1/cinema/:id' supprimer un cinema par son id
+  // 'v1/cinema/:id' supprimer un film par son id
   api.delete('/:id', ( req, res ) => {
     Cinema.remove({
       _id: req.params.id
